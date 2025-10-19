@@ -1,0 +1,241 @@
+:root {
+  --bg: #1e1e1e;        /* dark background */
+  --card: #2c2c2c;      /* dark card background */
+  --accent: #ff6b81;    /* accent / button color */
+  --muted: #cccccc;     /* muted text */
+  --radius: 14px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.6);
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* header */
+.site-header {
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+  color: #ff6b81; /* accent header color */
+}
+.site-header .subtitle { 
+  color: var(--muted); 
+  margin-top: 6px; 
+}
+
+/* container */
+.container {
+  width: 100%;
+  max-width: 1050px;
+  padding: 1.25rem;
+}
+
+/* friend cards - horizontal layout */
+.card.four-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.friend {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease;
+  text-align: center;
+  flex: 1 1 220px;
+  max-width: 250px;
+}
+.friend:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.8);
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2c2c2c;
+  margin-top: -44px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.friend h2 {
+  margin: 10px 0 6px;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.friend .nick {
+  font-size: 0.8rem; 
+  color: var(--muted); 
+  font-weight: 500;
+}
+
+.friend .message {
+  color: #ddd; 
+  font-size: 0.95rem; 
+  padding: 0 8px; 
+  min-height: 48px;
+}
+
+/* buttons */
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--accent), #ff92a9);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(255,107,129,0.4);
+}
+button.simple { 
+  background: transparent; 
+  box-shadow: none; 
+  color: var(--muted); 
+  border: 1px dashed rgba(255,255,255,0.2); 
+  padding: 8px 10px; 
+  border-radius: 8px; 
+}
+button.mini { 
+  padding: 8px 10px; 
+  border-radius: 8px; 
+}
+
+/* gallery / memories */
+.gallery {
+  margin: 1rem 0;
+  background: #2c2c2c;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.gallery h3 {
+  margin: 0 0 10px;
+  color: #ff6b81;
+}
+
+/* horizontal scrolling for photos */
+.photos {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+}
+
+.photos::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photos::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.photos img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  background: #1e1e1e;
+  border-radius: 10px;
+  transform: rotate(-90deg); /* rotated 90° left */
+  transform-origin: center;
+}
+
+/* actions section */
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.quote {
+  margin-left: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12,12,12,0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+
+.modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 1.1rem;
+  border-radius: 12px;
+  width: min(560px, 92%);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.8);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  font-size: 1.1rem;
+  color: var(--muted);
+  padding: 6px;
+}
+
+/* confetti canvas */
+#confettiCanvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+/* responsive */
+@media (max-width: 880px) {
+  .friend { flex: 1 1 45%; }
+  .photos img { width: 250px; height: 160px; }
+}
+
+@media (max-width: 520px) {
+  .friend { flex: 1 1 90%; }
+  .photos img { width: 90%; height: auto; }
+  .site-header h1 { font-size: 1.5rem; }
+}

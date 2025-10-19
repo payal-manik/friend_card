@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Friendship</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Our Friendship 💛</h1>
+    <p class="subtitle">A little digital card for my favourite people</p>
+  </header>
+
+  <main class="container">
+    <!-- Three-section card area -->
+    <section class="card four-sections">
+      <article class="friend" id="friend-1">
+        <img src="sulu.jpg" alt="Friend 1" class="avatar"/>
+        <h2>Sulu <span class="nick">(Giggles)</span></h2>
+        <p class="message">You light up every room. Thank you for always being kind & silly.</p>
+        <button class="show-note" data-note="Sulu">Read my note</button>
+      </article>
+
+      <article class="friend" id="friend-2">
+        <img src="prangya.jpg" alt="Friend 2" class="avatar"/>
+        <h2>Gendu <span class="nick">(SilentOne)</span></h2>
+        <p class="message">You keep us grounded and warm everything. I'm grateful for you.</p>
+        <button class="show-note" data-note="Prangya">Read my note</button>
+      </article>
+
+      <article class="friend" id="friend-3">
+        <img src="payal.jpg" alt="Friend 3" class="avatar"/>
+        <h2>Payal <span class="nick">(Childish)</span></h2>
+        <p class="message">i am last one in group still you all cherished like i was always there from first.</p>
+        <button class="show-note" data-note="Payal">Read my note</button>
+      </article>
+
+      <article class="friend" id="friend-4">
+        <img src="sargam.jpg" alt="Friend 4" class="avatar"/>
+        <h2>Amulu <span class="nick">(MatureOne)</span></h2>
+        <p class="message">You are the person who bloom like a flower & attract like honey attracts Bee.</p>
+        <button class="show-note" data-note="Sargam">Read my note</button>
+      </article>
+    </section>
+
+    <!-- Gallery / Memories -->
+    <section class="gallery">
+      <h3>Gallery — Memories</h3>
+      <div class="photos">
+        <img src="memo1.jpg" alt="memory1">
+        <img src="memo2.jpg" alt="memory2">
+        <img src="memo3.jpg" alt="memory3">
+      </div>
+    </section>
+
+    <!-- Interactive footer with confetti button -->
+    <section class="actions">
+      <button id="celebrateBtn" class="celebrate">Celebrate our friendship 🎉</button>
+      <button id="randomQuote" class="simple">Show a friendship quote</button>
+      <div id="quoteBox" class="quote" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Hidden modal for detailed notes -->
+  <div id="noteModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" title="Close">✕</button>
+      <h4 id="modalTitle">A note</h4>
+      <p id="modalText"></p>
+      <button id="confettiMini" class="mini">Make it sparkle ✨</button>
+    </div>
+  </div>
+
+  <!-- confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
